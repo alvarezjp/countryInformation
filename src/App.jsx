@@ -3,7 +3,25 @@ import server from "./components/server";
 import SearchCountry from "./components/searchCountry/SearchCountry.jsx";
 import UserMessage from "./components/userMessage/UserMessage.jsx";
 import CountryVisualization from "./components/countryVIsualization/CountryVIsualization.jsx";
+import styled from "styled-components";
+import "./reset.css"
 
+const StyledArticle = styled.article`
+border: 3px solid blue;
+height: 100vh;
+background-color: transparent;
+z-index: 1;
+`
+const Fondo = styled.div`
+border: 3px solid red;
+height: 100vh;
+width: 100vw;
+background-image: url("../public/img/fondo.jpg");
+background-size: cover;
+filter: blur(3px);
+z-index: 0;
+position: absolute;
+`
 
 
 
@@ -52,7 +70,8 @@ const App = () => {
 
 
   return (
-    <div>
+    <StyledArticle>
+      <Fondo/>
       <h1>Api de Paises</h1>
       <SearchCountry search={search} searchAction={searchAction} />
       <UserMessage
@@ -67,7 +86,7 @@ const App = () => {
         obtainInfo={obtainInfo}
         btnDetails={btnDetails}
       />
-    </div>
+    </StyledArticle>
   );
 };
 
