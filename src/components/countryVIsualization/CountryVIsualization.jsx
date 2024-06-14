@@ -11,13 +11,13 @@ const CountryVisualization = ({
   btnDetails,
 }) => {
   {
-    if (!searchActivation) {
-      return (
-        <>
-          <Paises name={name} />
-        </>
-      );
-    }
+    // if (!searchActivation) {
+    //   return (
+    //     <>
+    //       <Paises name={name} />
+    //     </>
+    //   );
+    // }
     if (searchActivation && nameFilter.length > 1) {
       return (
         <>
