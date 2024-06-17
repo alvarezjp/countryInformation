@@ -4,26 +4,54 @@ import SearchCountry from "./components/searchCountry/SearchCountry.jsx";
 import UserMessage from "./components/userMessage/UserMessage.jsx";
 import CountryVisualization from "./components/countryVIsualization/CountryVIsualization.jsx";
 import styled from "styled-components";
-import "./reset.css"
+import "./reset.css";
 
-const StyledArticle = styled.article`
-border: 3px solid blue;
-height: 100vh;
-background-color: transparent;
-z-index: 1;
+const Contain = styled.article`
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  z-index: 1;
+  background-image: url("../public/img/fondo.jpg");
+  background-size: cover;
+`;
+const Filter = styled.div`
+  width: 95%;
+  height: 90%;
+  left: 2.5%;
+  top: 5%;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  z-index: 0;
+  position: absolute;
+  border-radius: 40px;
+  /* border: 5px solid blue; */
+`;
+
+const StyledSection = styled.section`
+  position: absolute;
+  width: 90%;
+  height: 80%;
+  left: 5%;
+  top: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  h1 {
+    margin-bottom: 8px;
+    font-size: 56px;
+    text-align: center;
+    color: black;
+  }
+`;
+
+const StyledDiv = styled.div`
+/* border: 1px solid red; */
+box-sizing: border-box;
+width: 90%;
+margin-top: 16px;
+
 `
-const Fondo = styled.div`
-border: 3px solid red;
-height: 100vh;
-width: 100vw;
-background-image: url("../public/img/fondo.jpg");
-background-size: cover;
-filter: blur(3px);
-z-index: 0;
-position: absolute;
-`
-
-
 
 const App = () => {
   const [name, setName] = useState([]);
@@ -68,28 +96,29 @@ const App = () => {
     }
   };
 
-
   return (
-    <StyledArticle>
-      <Fondo/>
-      <h1>Api de Paises</h1>
-      <SearchCountry search={search} searchAction={searchAction} />
-      <UserMessage
-        search={search}
-        searchActivation={searchActivation}
-        nameFilter={nameFilter}
-      />
-      <CountryVisualization
-        name={name}
-        searchActivation={searchActivation}
-        nameFilter={nameFilter}
-        obtainInfo={obtainInfo}
-        btnDetails={btnDetails}
-      />
-    </StyledArticle>
+    <Contain>
+      <Filter />
+      <StyledSection>
+        <h1>Informacion de Paises</h1>
+        <SearchCountry search={search} searchAction={searchAction} />
+        <StyledDiv>
+          <UserMessage
+            search={search}
+            searchActivation={searchActivation}
+            nameFilter={nameFilter}
+          />
+          <CountryVisualization
+            name={name}
+            searchActivation={searchActivation}
+            nameFilter={nameFilter}
+            obtainInfo={obtainInfo}
+            btnDetails={btnDetails}
+          />
+        </StyledDiv>
+      </StyledSection>
+    </Contain>
   );
 };
-
-
 
 export default App;

@@ -11,7 +11,7 @@ const CountryVisualization = ({
   btnDetails,
 }) => {
   {
-    // if (!searchActivation) {
+    // if (!searchActivation) {                ---> visualizacion de paises
     //   return (
     //     <>
     //       <Paises name={name} />
