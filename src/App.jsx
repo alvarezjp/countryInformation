@@ -11,7 +11,7 @@ const Contain = styled.article`
   height: 100vh;
   width: 100%;
   z-index: 1;
-  background-image: url("../public/img/fondo.jpg");
+  background-image: url("img/fondo.jpg");
   background-size: cover;
 `;
 const Filter = styled.div`

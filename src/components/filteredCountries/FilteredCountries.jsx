@@ -1,80 +1,87 @@
-import BtnInfoCountry from "../btnInfoCountry/BtnInfoCountry.jsx";
-import DetailView from "../detailView/DetailView.jsx";
 import * as React from "react";
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
+import AspectRatio from "@mui/joy/AspectRatio";
+import Link from "@mui/joy/Link";
+import Card from "@mui/joy/Card";
+import CardContent from "@mui/joy/CardContent";
+import Chip from "@mui/joy/Chip";
+import Typography from "@mui/joy/Typography";
+import DetailView from "../detailView/DetailView.jsx";
+
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import styled from "styled-components";
 
 const ContainFilter = styled.article`
-display: flex;
-flex-direction: row;
-flex-wrap: wrap;
-gap: 10px;
-justify-content: center;
-`
+  /* height: 100vh;
+width: 100%; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  margin-top: 50px;
+  /* border: 1px solid blue; */
+`;
+
 
 const FilteredCountries = ({ nameFilter, obtainInfo, name, btnDetails }) => {
+  
+  console.log(btnDetails[0], "el btnDetails");
   return (
-    // <>
-    //   <h2>Nombre de paises</h2>
-    //   <ol>
-    //     {nameFilter.map((country, id) => {
-    //       const info = name.find(
-    //         (country) =>
-    //           country.name.common.toLowerCase() === nameFilter[id].toLowerCase()
-    //       );
-    //       console.log(info);
-    //       return (
-    //         <div key={id}>
-    //           <li key={country}>
-    //             {country}
-    //             <BtnInfoCountry
-    //               country={country}
-    //               obtainInfo={obtainInfo}
-    //               name={name}
-    //             />
-    //           </li>
-    //           <DetailView
-    //             country={country}
-    //             btnDetails={btnDetails}
-    //             name={name}
-    //           />
-    //           <img src={info.flags.png} alt="" />
-    //         </div>
-    //       );
-    //     })}
-    //   </ol>
-    // </>
-    <ContainFilter>
-      {nameFilter.map((country, id) => {
-        const info = name.find(
-          (country) =>
-            country.name.common.toLowerCase() === nameFilter[id].toLowerCase()
-        );
-        console.log(info);
-        return (
-          <Card sx={{ maxWidth: 250,maxHeight:260}}>
-            <CardMedia
-              sx={{ height: 140 , width:250}}
-              image={info.flags.png}
-              title="green iguana"
-            />
-            <CardContent sx={{ paddingBottom: 0 }}>
-              <Typography gutterBottom variant="h5" component="div">
-                {country}
-              </Typography>
-            </CardContent>
-            <CardActions sx={{ paddingTop: 0 }}>
-              <Button size="medium">Ver mas</Button>
-            </CardActions>
-          </Card>
-        );
-      })}
-    </ContainFilter>
+    <>
+      <h2>Nombre de paises</h2>
+
+      <ContainFilter>
+        {nameFilter.map((country, id) => {
+          const info = name.find(
+            (country) =>
+              country.name.common.toLowerCase() === nameFilter[id].toLowerCase()
+          );
+          
+          return (
+            <Card
+              variant="outlined"
+              orientation="horizontal"
+              sx={{
+                width: 320,
+                "&:hover": {
+                  boxShadow: "md",
+                  borderColor: "neutral.outlinedHoverBorder",
+                },
+              }}>
+              <AspectRatio ratio="1.4" sx={{ width: 90 }}>
+                <img
+                  src={info.flags.png}
+                  loading="lazy"
+                  alt=""
+                  style={{
+                    objectFit: "cover",
+                    objectPosition: "left top",
+                  }}
+                />
+              </AspectRatio>
+              <CardContent>
+                <Typography level="title-lg" id="card-description">
+                  {country}
+                </Typography>
+                <Chip
+                  variant="outlined"
+                  color="primary"
+                  size="sm"
+                  sx={{ cursor: "pointer", marginTop: "8px" }}
+                  onClick={() => obtainInfo(country)}>
+                  Ver mas
+                </Chip>
+              </CardContent>
+              {/* <DetailView
+                country={country}
+                btnDetails={btnDetails}
+                name={name}
+              /> */}
+            </Card>
+          );
+        })}
+      </ContainFilter>
+    </>
   );
 };
 

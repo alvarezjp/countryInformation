@@ -18,7 +18,7 @@ const CountryVisualization = ({
     //     </>
     //   );
     // }
-    if (searchActivation && nameFilter.length > 1) {
+    if ((searchActivation) && (nameFilter.length > 1) && (btnDetails == "")) {
       return (
         <>
           <FilteredCountries
@@ -34,6 +34,13 @@ const CountryVisualization = ({
       return (
         <>
           <CountryDetail nameFilter={nameFilter} name={name} search={search} />
+        </>
+      );
+    }
+    if (btnDetails != "" && nameFilter.length > 1 && searchActivation) {
+      return (
+        <>
+          <CountryDetail nameFilter={btnDetails} name={name}/>
         </>
       );
     }
