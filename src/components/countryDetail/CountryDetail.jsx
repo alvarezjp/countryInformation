@@ -7,6 +7,7 @@ import CardContent from "@mui/joy/CardContent";
 import Typography from "@mui/joy/Typography";
 import Sheet from "@mui/joy/Sheet";
 import ViewWeather from "../viewWeather/ViewWeather.jsx";
+import BtnInfoCountry from "../btnInfoCountry/BtnInfoCountry.jsx";
 
 const CountryDetail = ({ nameFilter, name }) => {
   const languages = [];
@@ -23,60 +24,12 @@ const CountryDetail = ({ nameFilter, name }) => {
 
   return (
     <>
-      {/* <h2>{info.name.common}</h2>
-        <p>
-          Su capital es: <b>{info.capital}</b>
-        </p>
-        <p>
-          Su ares es: <b>{info.area}</b>
-        </p>
-        <p>Los idiomas que hablan son:</p>
-        <ol>
-          {languages.map((names) => {
-            return <li key={names}>{names}</li>;
-          })}
-        </ol>
-        <h3>Bandera</h3>
-        <img src={info.flags.png} alt="" />
-        <ViewWeather info={info} /> */}
-
       <Box
         sx={{
           width: "100%",
           position: "relative",
           overflow: { xs: "auto", sm: "initial" },
         }}>
-        <Box
-          sx={{
-            position: "absolute",
-            display: "block",
-            width: "1px",
-            bgcolor: "warning.300",
-            left: "500px",
-            top: "-24px",
-            bottom: "-24px",
-            "&::before": {
-              top: "4px",
-              content: '"vertical"',
-              display: "block",
-              position: "absolute",
-              right: "0.5rem",
-              color: "text.tertiary",
-              fontSize: "sm",
-              fontWeight: "lg",
-            },
-            "&::after": {
-              top: "4px",
-              content: '"horizontal"',
-              display: "block",
-              position: "absolute",
-              left: "0.5rem",
-              color: "text.tertiary",
-              fontSize: "sm",
-              fontWeight: "lg",
-            },
-          }}
-        />
         <Card
           orientation="horizontal"
           sx={{
@@ -91,24 +44,25 @@ const CountryDetail = ({ nameFilter, name }) => {
             overflow: "auto",
             resize: "horizontal",
           }}>
-          <AspectRatio flex ratio="1" maxHeight={182} sx={{ minWidth: 182 }}>
+          <AspectRatio flex ratio="1" maxHeight={182} sx={{ minWidth: 275,textAlign:"center"}}>
             <img
               src={info.flags.png}
               srcSet={info.flags.png}
               loading="lazy"
               alt=""
+              style={{ width: "100%" ,objectFit: "contain", objectPosition: "center" }}
             />
           </AspectRatio>
           <CardContent>
             <Typography fontSize="xl" fontWeight="lg">
               {info.name.common}
             </Typography>
-            <Typography
+            {/* <Typography
               level="body-sm"
               fontWeight="lg"
               textColor="text.tertiary">
               Capital: {info.capital}
-            </Typography>
+            </Typography> */}
             <Sheet
               sx={{
                 bgcolor: "background.level1",
@@ -116,6 +70,7 @@ const CountryDetail = ({ nameFilter, name }) => {
                 p: 1.5,
                 my: 1.5,
                 display: "flex",
+                flexWrap: "wrap",
                 gap: 2,
                 "& > div": { flex: 1 },
               }}>
@@ -123,25 +78,27 @@ const CountryDetail = ({ nameFilter, name }) => {
                 <Typography level="body-xs" fontWeight="lg">
                   Area
                 </Typography>
-                <Typography fontWeight="lg">{info.area}</Typography>
+                <Typography fontWeight="lg">{info.area} Km</Typography>
               </div>
               <div>
                 <Typography level="body-xs" fontWeight="lg">
-                  Lenguajes
+                  languages
                 </Typography>
                 <Typography fontWeight="lg">
                   <>
+                    
                     {languages.map((names) => {
                       return <ul key={names}>{names}</ul>;
                     })}
+                    
                   </>
                 </Typography>
               </div>
               <div>
                 <Typography level="body-xs" fontWeight="lg">
-                  Rating
+                  Capital
                 </Typography>
-                <Typography fontWeight="lg">8.9</Typography>
+                <Typography fontWeight="lg">{info.capital}</Typography>
               </div>
             </Sheet>
           </CardContent>

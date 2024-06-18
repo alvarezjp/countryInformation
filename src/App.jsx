@@ -101,8 +101,7 @@ const App = () => {
       <Filter />
       <StyledSection>
         <h1>Informacion de Paises</h1>
-        <SearchCountry search={search} searchAction={searchAction} />
-        <StyledDiv>
+        {!btnDetails[0] && <SearchCountry search={search} searchAction={searchAction} />}        <StyledDiv>
           <UserMessage
             search={search}
             searchActivation={searchActivation}
