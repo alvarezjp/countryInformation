@@ -8,9 +8,8 @@ const getAll = () => {
 };
 
 const weather = (lat,lon,key) =>{
-  return axios.get(`http://my.meteoblue.com/packages/basic-1h_basic-day?lat=${lat}&lon=${lon}&apikey=${key}
-
-  `)
+  // return axios.get(`http://my.meteoblue.com/packages/basic-1h_basic-day?lat=${lat}&lon=${lon}&apikey=${key}`)
+  return axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}`)
 }
 
 const geoLocation = (country,code,key) => {

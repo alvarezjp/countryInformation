@@ -25,7 +25,6 @@ width: 100%; */
 
 const FilteredCountries = ({ nameFilter, obtainInfo, name, btnDetails }) => {
   
-  console.log(btnDetails[0], "el btnDetails");
   return (
     <>
       <h2>Nombre de paises</h2>

@@ -104,6 +104,7 @@ const CountryDetail = ({ nameFilter, name }) => {
           </CardContent>
         </Card>
       </Box>
+      <ViewWeather info={info} />
     </>
   );
 };
