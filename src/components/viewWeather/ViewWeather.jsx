@@ -7,6 +7,9 @@ import CardContent from "@mui/joy/CardContent";
 import CardOverflow from "@mui/joy/CardOverflow";
 import Typography from "@mui/joy/Typography";
 import BakeryDiningIcon from "@mui/icons-material/BakeryDining";
+
+
+
 import { useState } from "react";
 import server from "../server.js";
 
@@ -36,31 +39,23 @@ const ViewWeather = ({ info }) => {
       });
     });
   return (
-    // <article style={{ background: "#F5F5F5" }}>
-    //   <h2>Temperatura</h2>
-    //   <img
-    //     src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
-    //     alt=""
-    //     style={{ width: "100px" }}
-    //   />
-    //   <p>Temperatura Minima: {tempMin} °C</p>
-    //   <p>Temperatura Maxima: {tempMax} °C</p>
-    // </article>
     <Card
       data-resizable
       sx={{
         textAlign: "center",
         alignItems: "center",
-        width: 343,
+        width: " 100%",
+        height: "70%",
         // to make the demo resizable
         overflow: "auto",
         resize: "horizontal",
         "--icon-size": "100px",
+        backgroundColor: "white",
       }}>
-      <CardOverflow variant="solid" color="warning">
+      <CardOverflow variant="solid" style={{ backgroundColor: "#E0F7FA" }}>
         <AspectRatio
           variant="outlined"
-          color="warning"
+          color="#E0F7FA"
           ratio="1"
           sx={{
             m: "auto",
@@ -71,27 +66,31 @@ const ViewWeather = ({ info }) => {
             bgcolor: "background.surface",
             position: "relative",
           }}>
-          <div style={{ backgroundColor:"#433937" }}>
+          <div style={{ backgroundColor: "#D3D3D3" }}>
             <img
               src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
               alt=""
-              style={{ width: 100 }}
+              style={{ width: "100px" }}
             />
           </div>
         </AspectRatio>
       </CardOverflow>
       <Typography level="title-lg" sx={{ mt: "calc(var(--icon-size) / 2)" }}>
-        Tiempo
+        Tiempo para hoy
       </Typography>
       <CardContent sx={{ maxWidth: "40ch" }}>
         <Typography variant="body" color="text.secondary">
-          Temperatura Minima: {tempMin} °C
+          <Typography
+            level="title-lg"
+            sx={{ mt: "calc(var(--icon-size) / 2)" }}>
+            Temperatura minima:  
+          </Typography>
+           {tempMin} °C
         </Typography>
         <Typography variant="body" color="text.secondary">
-          Temperatura Maxima: {tempMax} °C
+          Temperatura maxima: {tempMax} °C
         </Typography>
       </CardContent>
-      
     </Card>
   );
 };

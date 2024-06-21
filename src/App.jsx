@@ -11,11 +11,13 @@ const Contain = styled.article`
   height: 100vh;
   width: 100%;
   z-index: 1;
-  background-image: url("img/fondo.jpg");
+  background-image: url("img/fondo2.jpg");
+  background-color: rgba(0, 0, 0, 0.7);
+  background-blend-mode: multiply;
   background-size: cover;
 `;
 const Filter = styled.div`
-  width: 95%;
+  width: 50%;
   height: 90%;
   left: 2.5%;
   top: 5%;
@@ -46,12 +48,11 @@ const StyledSection = styled.section`
 `;
 
 const StyledDiv = styled.div`
-/* border: 1px solid red; */
-box-sizing: border-box;
-width: 90%;
-margin-top: 16px;
-
-`
+  /* border: 1px solid red; */
+  box-sizing: border-box;
+  width: 90%;
+  margin-top: 16px;
+`;
 
 const App = () => {
   const [name, setName] = useState([]);
@@ -98,10 +99,13 @@ const App = () => {
 
   return (
     <Contain>
-      <Filter />
+      {/* <Filter /> */}
       <StyledSection>
         <h1>Informacion de Paises</h1>
-        {!btnDetails[0] && <SearchCountry search={search} searchAction={searchAction} />}        <StyledDiv>
+        {!btnDetails[0] && (
+          <SearchCountry search={search} searchAction={searchAction} />
+        )}
+        <StyledDiv>
           <UserMessage
             search={search}
             searchActivation={searchActivation}
