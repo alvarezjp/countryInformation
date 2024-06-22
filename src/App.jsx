@@ -3,56 +3,13 @@ import server from "./components/server";
 import SearchCountry from "./components/searchCountry/SearchCountry.jsx";
 import UserMessage from "./components/userMessage/UserMessage.jsx";
 import CountryVisualization from "./components/countryVIsualization/CountryVIsualization.jsx";
-import styled from "styled-components";
 import "./reset.css";
+import { Contain,InfoArticle,TextArticle, StyledSection,StyledDiv } from "./styled";
+import TitleText from "./components/titleText/TitleText.jsx";
 
-const Contain = styled.article`
-  position: relative;
-  height: 100vh;
-  width: 100%;
-  z-index: 1;
-  background-image: url("img/fondo2.jpg");
-  background-color: rgba(0, 0, 0, 0.7);
-  background-blend-mode: multiply;
-  background-size: cover;
-`;
-const Filter = styled.div`
-  width: 50%;
-  height: 90%;
-  left: 2.5%;
-  top: 5%;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(5px);
-  z-index: 0;
-  position: absolute;
-  border-radius: 40px;
-  /* border: 5px solid blue; */
-`;
 
-const StyledSection = styled.section`
-  position: absolute;
-  width: 90%;
-  height: 80%;
-  left: 5%;
-  top: 10%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-sizing: border-box;
-  h1 {
-    margin-bottom: 8px;
-    font-size: 56px;
-    text-align: center;
-    color: black;
-  }
-`;
 
-const StyledDiv = styled.div`
-  /* border: 1px solid red; */
-  box-sizing: border-box;
-  width: 90%;
-  margin-top: 16px;
-`;
+
 
 const App = () => {
   const [name, setName] = useState([]);
@@ -99,8 +56,13 @@ const App = () => {
 
   return (
     <Contain>
-      {/* <Filter /> */}
-      <StyledSection>
+      <TextArticle>
+        <TitleText/>
+      </TextArticle>
+      <InfoArticle>
+        
+      </InfoArticle>
+      {/* <StyledSection>
         <h1>Informacion de Paises</h1>
         {!btnDetails[0] && (
           <SearchCountry search={search} searchAction={searchAction} />
@@ -119,7 +81,7 @@ const App = () => {
             btnDetails={btnDetails}
           />
         </StyledDiv>
-      </StyledSection>
+      </StyledSection> */}
     </Contain>
   );
 };
