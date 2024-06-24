@@ -4,12 +4,15 @@ import SearchCountry from "./components/searchCountry/SearchCountry.jsx";
 import UserMessage from "./components/userMessage/UserMessage.jsx";
 import CountryVisualization from "./components/countryVIsualization/CountryVIsualization.jsx";
 import "./reset.css";
-import { Contain,InfoArticle,TextArticle, StyledSection,StyledDiv } from "./styled";
+import {
+  Contain,
+  InfoArticle,
+  TextArticle,
+  StyledSection,
+  StyledDiv,
+} from "./styled";
 import TitleText from "./components/titleText/TitleText.jsx";
-
-
-
-
+import ImgHero from "./components/ImgHero/ImgHero.jsx";
 
 const App = () => {
   const [name, setName] = useState([]);
@@ -57,10 +60,30 @@ const App = () => {
   return (
     <Contain>
       <TextArticle>
-        <TitleText/>
+        <TitleText />
+        {!btnDetails[0] && (
+          <SearchCountry search={search} searchAction={searchAction} />
+        )}
       </TextArticle>
       <InfoArticle>
-        
+        {(!searchActivation && <ImgHero />) || (
+          <>
+            <UserMessage
+              search={search}
+              searchActivation={searchActivation}
+              nameFilter={nameFilter}
+            />
+            <StyledDiv>
+              <CountryVisualization
+                name={name}
+                searchActivation={searchActivation}
+                nameFilter={nameFilter}
+                obtainInfo={obtainInfo}
+                btnDetails={btnDetails}
+              />
+            </StyledDiv>
+          </>
+        )}
       </InfoArticle>
       {/* <StyledSection>
         <h1>Informacion de Paises</h1>

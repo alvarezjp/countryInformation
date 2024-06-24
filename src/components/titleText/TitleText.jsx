@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 const Article = styled.article`
-  width: 100%;
+display: inline-block;
+  width: 80%;
   height: auto;
-  border: 4px solid green;
 `;
 
 const TextH1 = styled.h1`

@@ -9,24 +9,27 @@ const Contain = styled.article`
   flex-direction: row;
 
   background-image: url("img/fondo3.jpg");
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.8);
   background-blend-mode: multiply;
   background-size: cover;
   background-position: center;
 `;
 const TextArticle = styled.article`
-box-sizing: border-box; 
+  box-sizing: border-box;
   width: 50%;
   height: 100%;
-  border: 1px solid red;
+  display: flex;
+flex-direction: column;
+  justify-content: center;
+  align-items: end;
+  gap: 16px;
+  /* border: 1px solid red; */
 `;
 const InfoArticle = styled.article`
   width: 50%;
   height: 100%;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
 `;
-
-
 
 const StyledSection = styled.section`
   position: absolute;
@@ -47,9 +50,15 @@ const StyledSection = styled.section`
 `;
 
 const StyledDiv = styled.div`
-  /* border: 1px solid red; */
+  border: 1px solid blue;
   box-sizing: border-box;
-  width: 90%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 90%;
   margin-top: 16px;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #ffffff transparent;
 `;
-export { Contain, TextArticle,InfoArticle, StyledSection,StyledDiv };
+export { Contain, TextArticle, InfoArticle, StyledSection, StyledDiv };

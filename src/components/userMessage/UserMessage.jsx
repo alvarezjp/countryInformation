@@ -1,3 +1,5 @@
+import styled from "styled-components";
+
 const UserMessage = ({ search, searchActivation, nameFilter }) => {
     if (
       (search.length >= 1 && !searchActivation) ||

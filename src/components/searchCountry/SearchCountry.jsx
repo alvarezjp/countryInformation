@@ -12,7 +12,8 @@ const SearchCountry = ({ search, searchAction }) => {
         p: "2px 4px",
         display: "flex",
         alignItems: "center",
-        width: "100%",
+        width: "80%",
+        borderRadius:"16px",
       }}>
       <SearchIcon sx={{ color:"black",fontSize:"32px",padding:"2px" }} />
       <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
