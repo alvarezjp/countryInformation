@@ -1,5 +1,12 @@
 import styled from "styled-components";
 
+const StyleH2 = styled.h2`
+  font-size: 1.5rem;
+  text-align: center;
+  /* margin-top: 1rem; */
+  color:red
+`;
+
 const UserMessage = ({ search, searchActivation, nameFilter }) => {
     if (
       (search.length >= 1 && !searchActivation) ||
@@ -7,7 +14,7 @@ const UserMessage = ({ search, searchActivation, nameFilter }) => {
     ) {
       return (
         <>
-          <h2>Realiza una consulta mas especifica</h2>
+          <StyleH2>Realiza una consulta mas especifica</StyleH2>
         </>
       );
     }

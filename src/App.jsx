@@ -11,8 +11,10 @@ import {
   StyledSection,
   StyledDiv,
 } from "./styled";
+import Button from "@mui/joy/Button";
 import TitleText from "./components/titleText/TitleText.jsx";
 import ImgHero from "./components/ImgHero/ImgHero.jsx";
+import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 
 const App = () => {
   const [name, setName] = useState([]);
@@ -61,18 +63,32 @@ const App = () => {
     <Contain>
       <TextArticle>
         <TitleText />
-        {!btnDetails[0] && (
+        {!btnDetails[0] ? (
           <SearchCountry search={search} searchAction={searchAction} />
+        ) : (
+          <Button
+            color="neutral"
+            size="lg"
+            variant="soft"
+            sx={{
+              borderRadius:"16px",
+              width: "80%",
+            }}
+            onClick={() => obtainInfo(btnDetails[0])}
+            startDecorator={<KeyboardArrowLeft />}>
+            Volver
+          </Button>
         )}
+        <UserMessage search={search} nameFilter={nameFilter} searchActivation={searchActivation}/>
       </TextArticle>
       <InfoArticle>
         {(!searchActivation && <ImgHero />) || (
           <>
-            <UserMessage
+            {/* <UserMessage
               search={search}
               searchActivation={searchActivation}
               nameFilter={nameFilter}
-            />
+            /> */}
             <StyledDiv>
               <CountryVisualization
                 name={name}

@@ -1,124 +1,3 @@
-// import * as React from "react";
-// import AspectRatio from "@mui/joy/AspectRatio";
-// import Box from "@mui/joy/Box";
-// import Button from "@mui/joy/Button";
-// import Card from "@mui/joy/Card";
-// import CardContent from "@mui/joy/CardContent";
-// import Typography from "@mui/joy/Typography";
-// import Sheet from "@mui/joy/Sheet";
-// import ViewWeather from "../viewWeather/ViewWeather.jsx";
-// import BtnInfoCountry from "../btnInfoCountry/BtnInfoCountry.jsx";
-
-// const CountryDetail = ({ nameFilter, name }) => {
-//   const languages = [];
-//   const info = name.find(
-//     (country) =>
-//       country.name.common.toLowerCase() === nameFilter[0].toLowerCase()
-//   );
-//   for (const leg in info.languages) {
-//     if (Object.hasOwnProperty.call(info.languages, leg)) {
-//       const value = info.languages[leg];
-//       languages.push(value);
-//     }
-//   }
-
-//   return (
-//     <>
-//       <Box
-//         sx={{
-//           width: "100%",
-//           position: "relative",
-//           textAlign: "center",
-//           display: "flex",
-//           justifyContent: "center",
-//           border: "1px solid blue",
-//           overflow: { xs: "auto", sm: "initial", display: "flex" },
-//         }}
-//        >
-//         <Card
-//           sx={{
-//             width: "310px",
-//             height: "50%",
-//             display: "flex",
-//             flexWrap: "wrap",
-//             border: "1px solid red",
-//             overflow: "auto",
-//             resize: "horizontal",
-//           }}
-
-//          >
-//           <CardContent>
-//             <Typography fontSize="xl" fontWeight="lg">
-//               {info.name.common}
-//             </Typography>
-//             <AspectRatio
-//               flex
-//               ratio="1"
-//               maxHeight={182}
-//               sx={{
-//                 minWidth: 275,
-//                 textAlign: "center",
-//                 border: "1px solid black",
-//                 background: "blue",
-//               }}>
-//               <img
-//                 src={info.flags.png}
-//                 srcSet={info.flags.png}
-//                 loading="lazy"
-//                 alt=""
-//                 style={{
-//                   width: "100%",
-//                   objectFit: "contain",
-//                   objectPosition: "center",
-//                 }}
-//               />
-//             </AspectRatio>
-//             <Sheet
-//               sx={{
-//                 bgcolor: "background.level1",
-//                 borderRadius: "sm",
-//                 p: 1.5,
-//                 my: 1.5,
-//                 display: "flex",
-//                 flexWrap: "wrap",
-//                 gap: 2,
-//                 "& > div": { flex: 1 },
-//               }}>
-//               <div>
-//                 <Typography level="body-xs" fontWeight="lg">
-//                   Area
-//                 </Typography>
-//                 <Typography fontWeight="lg">{info.area} Km</Typography>
-//               </div>
-//               <div>
-//                 <Typography level="body-xs" fontWeight="lg">
-//                   languages
-//                 </Typography>
-//                 <Typography fontWeight="lg">
-//                   <>
-//                     {languages.map((names) => {
-//                       return <ul key={names}>{names}</ul>;
-//                     })}
-//                   </>
-//                 </Typography>
-//               </div>
-//               <div>
-//                 <Typography level="body-xs" fontWeight="lg">
-//                   Capital
-//                 </Typography>
-//                 <Typography fontWeight="lg">{info.capital}</Typography>
-//               </div>
-//             </Sheet>
-//           </CardContent>
-//           <ViewWeather info={info} />
-//         </Card>
-//       </Box>
-//     </>
-//   );
-// };
-
-// export default CountryDetail;
-
 import * as React from "react";
 import AspectRatio from "@mui/joy/AspectRatio";
 import Box from "@mui/joy/Box";
@@ -127,6 +6,7 @@ import Card from "@mui/joy/Card";
 import CardContent from "@mui/joy/CardContent";
 import Typography from "@mui/joy/Typography";
 import Sheet from "@mui/joy/Sheet";
+import Divider from "@mui/joy/Divider";
 import ViewWeather from "../viewWeather/ViewWeather.jsx";
 import { alignProperty } from "@mui/material/styles/cssUtils.js";
 
@@ -146,15 +26,22 @@ const CountryDetail = ({ nameFilter, name }) => {
     <>
       <Box
         sx={{
-          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+          width: "350px",
+          height: "100%",
           position: "relative",
+          boxSizing: "border-box",
           overflow: { xs: "auto", sm: "initial" },
+          // border:"1px solid green",
         }}>
         <Card
           orientation="horizontal"
+          variant="plain"
           sx={{
-            width: "100%",
+            width: "350px",
             flexWrap: "wrap",
+            backgroundColor: "rgba(255, 255, 255, 0.1)",
             [`& > *`]: {
               "--stack-point": "500px",
               minWidth:
@@ -167,25 +54,34 @@ const CountryDetail = ({ nameFilter, name }) => {
             flex
             ratio="1"
             maxHeight={182}
-            sx={{ minWidth: 250,textAlign:"center" }}>
+            variant="plain"
+            sx={{ minWidth: 250, textAlign: "center" }}>
             <img
               src={info.flags.png}
               loading="lazy"
               alt=""
-              style={{ width: "100%" ,objectFit: "contain", objectPosition: "center",backgroundColor: "white"}}
+              style={{
+                boxSizing: "border-box",
+                width: "100%",
+                objectFit: "contain",
+                objectPosition: "center",
+                backgroundColor: "transparent"
+              }}
             />
           </AspectRatio>
+
           <CardContent sx={{ display: "flex", justifyContent: "center" }}>
             {/* aca es la tarjeta externa */}
-            <Typography fontSize="xl" fontWeight="lg">
+            <Typography fontSize="xl" fontWeight="lg" sx={{ color: "white" }}>
               {info.name.common}
             </Typography>
-            <Typography
+            {/* <Typography
               level="body-sm"
               fontWeight="lg"
-              textColor="text.tertiary">
+              textColor="text.tertiary"
+              sx={{ color: "white" }}>
               {info.name.official}
-            </Typography>
+            </Typography> */}
             <Sheet
               sx={{
                 bgcolor: "background.level1",
@@ -194,9 +90,9 @@ const CountryDetail = ({ nameFilter, name }) => {
                 my: 1.5,
                 display: "flex",
                 gap: 2,
+
                 "& > div": { flex: 1 },
               }}>
-              
               {/* aca es la tarjeta interna */}
               <div>
                 <Typography level="body-xs" fontWeight="lg">
@@ -221,11 +117,14 @@ const CountryDetail = ({ nameFilter, name }) => {
                 <Typography fontWeight="lg">{info.area} Km</Typography>
               </div>
             </Sheet>
-            
+            <Divider
+              orientation="horizontal"
+              sx={{ "--Divider-lineColor": "white" }}
+            />
+            <ViewWeather info={info} />
           </CardContent>
         </Card>
       </Box>
-      <ViewWeather info={info} />
     </>
   );
 };

@@ -5,7 +5,7 @@ import Sheet from "@mui/joy/Sheet";
 import Radio from "@mui/joy/Radio";
 import Box from "@mui/joy/Box";
 import Button from "@mui/joy/Button";
-import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
+import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 
 const CountryVisualization = ({
   name,
@@ -16,13 +16,6 @@ const CountryVisualization = ({
   btnDetails,
 }) => {
   {
-    // if (!searchActivation) {                ---> visualizacion de paises
-    //   return (
-    //     <>
-    //       <Paises name={name} />
-    //     </>
-    //   );
-    // }
     if (searchActivation && nameFilter.length > 1 && btnDetails == "") {
       return (
         <>
@@ -47,14 +40,6 @@ const CountryVisualization = ({
         <>
           <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
             <CountryDetail nameFilter={btnDetails} name={name} />
-            <Button
-              color="neutral"
-              size="md"
-              variant="soft"
-              onClick={() => obtainInfo(btnDetails[0])}
-              endDecorator={<KeyboardArrowRight />}>
-              Volver
-            </Button>
           </Box>
         </>
       );

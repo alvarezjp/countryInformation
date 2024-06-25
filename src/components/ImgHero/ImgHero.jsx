@@ -16,10 +16,6 @@ background-size: cover;
 background-position: center;
 border-radius: 20px;
 position: absolute;
-left: ${props => props.left };
-top: ${props => props.top };
-right: ${props => props.right };
-bottom: ${props => props.bottom };
 `
 
 
@@ -28,8 +24,8 @@ bottom: ${props => props.bottom };
 const ImgHero = () => {
     return (
         <Contain>
-            <ImgStyled src="./img/subFondo2.jpg"   top="7%" left="15%"/>
-            <ImgStyled src="./img/subFondo3.jpg" bottom="7%" right="15%" />
+            <ImgStyled src="./img/subFondo2.jpg"  style={{ top:"7%", left:"15%"}}/>
+            <ImgStyled src="./img/subFondo3.jpg" style={{bottom:"7%" ,right:"15%" }} />
         </Contain>
     );
 };

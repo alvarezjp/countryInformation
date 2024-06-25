@@ -28,7 +28,10 @@ flex-direction: column;
 const InfoArticle = styled.article`
   width: 50%;
   height: 100%;
-  /* border: 1px solid blue; */
+  display:  flex;
+  align-items: center;
+  box-sizing: border-box;
+  /* border: 1px solid green; */
 `;
 
 const StyledSection = styled.section`
@@ -50,15 +53,15 @@ const StyledSection = styled.section`
 `;
 
 const StyledDiv = styled.div`
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 90%;
   margin-top: 16px;
-  overflow: auto;
-  scrollbar-width: thin;
-  scrollbar-color: #ffffff transparent;
+ 
 `;
 export { Contain, TextArticle, InfoArticle, StyledSection, StyledDiv };

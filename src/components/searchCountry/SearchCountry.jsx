@@ -13,6 +13,7 @@ const SearchCountry = ({ search, searchAction }) => {
         display: "flex",
         alignItems: "center",
         width: "80%",
+        height: "40px",
         borderRadius:"16px",
       }}>
       <SearchIcon sx={{ color:"black",fontSize:"32px",padding:"2px" }} />

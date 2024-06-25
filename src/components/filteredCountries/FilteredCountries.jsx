@@ -3,45 +3,46 @@ import AspectRatio from "@mui/joy/AspectRatio";
 import Link from "@mui/joy/Link";
 import Card from "@mui/joy/Card";
 import CardContent from "@mui/joy/CardContent";
-import Chip from "@mui/joy/Chip";
+// import Chip from "@mui/joy/Chip";
+import Button from "@mui/joy/Button";
 import Typography from "@mui/joy/Typography";
 import DetailView from "../detailView/DetailView.jsx";
 
-import Button from "@mui/material/Button";
+// import Button as "boton" from "@mui/material/Button";
 import styled from "styled-components";
 
 const ContainFilter = styled.article`
-  /* height: 100vh;
-width: 100%; */
   display: flex;
-  flex-direction: row;
+  width: 320px;
+  /* height: 100%; */
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 20px;
+  /* padding-right: 50px; */
   justify-content: center;
-  margin-top: 50px;
-  /* border: 1px solid blue; */
+  /* border: 1px solid red; */
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.4) transparent;
 `;
 
-
 const FilteredCountries = ({ nameFilter, obtainInfo, name, btnDetails }) => {
-  
   return (
     <>
-      <h2>Nombre de paises</h2>
-
       <ContainFilter>
         {nameFilter.map((country, id) => {
           const info = name.find(
             (country) =>
               country.name.common.toLowerCase() === nameFilter[id].toLowerCase()
           );
-          
+
           return (
             <Card
               variant="outlined"
               orientation="horizontal"
               sx={{
                 width: 320,
+                backgroundColor: "rgba(255, 255, 255, 0.3)",
+                border: "1px solid",
                 "&:hover": {
                   boxShadow: "md",
                   borderColor: "neutral.outlinedHoverBorder",
@@ -59,23 +60,29 @@ const FilteredCountries = ({ nameFilter, obtainInfo, name, btnDetails }) => {
                 />
               </AspectRatio>
               <CardContent>
-                <Typography level="title-lg" id="card-description">
+                <Typography
+                  level="title-lg"
+                  id="card-description"
+                  sx={{ color: "black" }}>
                   {country}
                 </Typography>
-                <Chip
+                <Button
+                  onClick={() => obtainInfo(country)}
+                  color="neutral"
                   variant="outlined"
-                  color="primary"
-                  size="sm"
-                  sx={{ cursor: "pointer", marginTop: "8px" }}
-                  onClick={() => obtainInfo(country)}>
+                  size=""
+                  sx={{
+                    marginTop: "8px",
+                    color: "black",
+                    border: "1px solid black",
+                    "&:hover": {
+                      backgroundColor: "rgba(0, 0, 0, 0.7)",
+                      color: "white",
+                    },
+                  }}>
                   Ver mas
-                </Chip>
+                </Button>
               </CardContent>
-              {/* <DetailView
-                country={country}
-                btnDetails={btnDetails}
-                name={name}
-              /> */}
             </Card>
           );
         })}
