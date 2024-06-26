@@ -1,10 +1,16 @@
 import styled from "styled-components";
 
 const StyleH2 = styled.h2`
-  font-size: 1.5rem;
-  text-align: center;
-  /* margin-top: 1rem; */
-  color:red
+  font-size: 16px;
+  color:red;
+  font-family: "Work Sans", sans-serif;
+  font-weight: 400;
+  /* border: 1px solid yellow; */
+`;
+
+const Section = styled.section`
+  width: 80%;
+  /* border: 1px solid pink; */
 `;
 
 const UserMessage = ({ search, searchActivation, nameFilter }) => {
@@ -13,9 +19,10 @@ const UserMessage = ({ search, searchActivation, nameFilter }) => {
       (search.length >= 1 && nameFilter.length === 0)
     ) {
       return (
-        <>
-          <StyleH2>Realiza una consulta mas especifica</StyleH2>
-        </>
+       <Section>
+          <StyleH2>Make a more specific query</StyleH2>
+       </Section>
+        
       );
     }
   };

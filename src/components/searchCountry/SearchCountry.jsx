@@ -16,11 +16,11 @@ const SearchCountry = ({ search, searchAction }) => {
         height: "40px",
         borderRadius:"16px",
       }}>
-      <SearchIcon sx={{ color:"black",fontSize:"32px",padding:"2px" }} />
+      <SearchIcon sx={{ color:"black",fontSize:"32px",padding:"2px",marginLeft:"8px" }} />
       <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
       <InputBase
         sx={{ ml: 1, flex: 1 }}
-        placeholder="Buscar Paises"
+        placeholder="Search Countries"
         value={search}
         onChange={searchAction}
       />

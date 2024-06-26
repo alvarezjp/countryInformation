@@ -39,7 +39,7 @@ const ViewWeather = ({ info }) => {
   return (
     <>
       <Typography fontSize="xl" fontWeight="lg" sx={{ color: "white", marginTop:"8px" }}>
-       Tiempo
+      Weather
       </Typography>
       <Sheet
         sx={{
@@ -58,7 +58,7 @@ const ViewWeather = ({ info }) => {
             level="body-xs"
             fontWeight="lg"
             sx={{ textAlign: "center" }}>
-            Temperatura maxima
+            Maximum temperature
           </Typography>
           <Typography fontWeight="lg" sx={{ textAlign: "center" }}>
             {tempMax} °C{" "}
@@ -69,7 +69,7 @@ const ViewWeather = ({ info }) => {
             level="body-xs"
             fontWeight="lg"
             sx={{ textAlign: "center" }}>
-            Temperatura minima
+            Minimum Temperature
           </Typography>
           <Typography fontWeight="lg" sx={{ textAlign: "center" }}>
             {tempMin} °C{" "}

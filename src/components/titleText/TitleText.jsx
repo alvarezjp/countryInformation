@@ -18,7 +18,7 @@ const TextH1 = styled.h1`
 const TextH2 = styled.h2`
   font-family: "Work Sans", sans-serif;
   font-weight: 300;
-  font-size: 45px;
+  font-size: 42px;
   color: white;
   line-height: 54px;
 `;
@@ -27,7 +27,7 @@ const TitleText = () => {
   return (
     <Article>
       <TextH1>Welcome to Country Finder! </TextH1>
-      <TextH2>Discover detailed info and climate of any nation.</TextH2>
+      <TextH2>Discover detailed information and climate data for any nation</TextH2>
     </Article>
   );
 };

@@ -3,6 +3,11 @@ import server from "./components/server";
 import SearchCountry from "./components/searchCountry/SearchCountry.jsx";
 import UserMessage from "./components/userMessage/UserMessage.jsx";
 import CountryVisualization from "./components/countryVIsualization/CountryVIsualization.jsx";
+import Button from "@mui/joy/Button";
+import TitleText from "./components/titleText/TitleText.jsx";
+import ImgHero from "./components/ImgHero/ImgHero.jsx";
+import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
+import Grid from "@mui/material/Grid";
 import "./reset.css";
 import {
   Contain,
@@ -11,10 +16,6 @@ import {
   StyledSection,
   StyledDiv,
 } from "./styled";
-import Button from "@mui/joy/Button";
-import TitleText from "./components/titleText/TitleText.jsx";
-import ImgHero from "./components/ImgHero/ImgHero.jsx";
-import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 
 const App = () => {
   const [name, setName] = useState([]);
@@ -62,65 +63,94 @@ const App = () => {
   return (
     <Contain>
       <TextArticle>
-        <TitleText />
-        {!btnDetails[0] ? (
-          <SearchCountry search={search} searchAction={searchAction} />
-        ) : (
-          <Button
-            color="neutral"
-            size="lg"
-            variant="soft"
-            sx={{
-              borderRadius:"16px",
-              width: "80%",
-            }}
-            onClick={() => obtainInfo(btnDetails[0])}
-            startDecorator={<KeyboardArrowLeft />}>
-            Volver
-          </Button>
-        )}
-        <UserMessage search={search} nameFilter={nameFilter} searchActivation={searchActivation}/>
-      </TextArticle>
-      <InfoArticle>
-        {(!searchActivation && <ImgHero />) || (
-          <>
-            {/* <UserMessage
+        <Grid container spacing={2} sx={{width:"100%"}}>
+          <Grid item xs={12} md={12} sx={{ display:"flex",justifyContent:"center" }}>
+            <TitleText />
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            md={12}
+            sx={{height: "50px",display:"flex",justifyContent:"center"
+             }}>
+            {!btnDetails[0] ? (
+              <SearchCountry search={search} searchAction={searchAction} />
+            ) : (
+              <Button
+                color="neutral"
+                variant="soft"
+                sx={{
+                  borderRadius: "16px",
+                  width: "80%",
+                  height: "40px",
+                }}
+                onClick={() => obtainInfo(btnDetails[0])}
+                startDecorator={<KeyboardArrowLeft />}>
+                Volver
+              </Button>
+            )}
+          </Grid>
+          <Grid item xs={11} md={12} sx={{height:"40px",display:"flex",justifyContent:"center"  }}>
+            <UserMessage
               search={search}
-              searchActivation={searchActivation}
               nameFilter={nameFilter}
-            /> */}
-            <StyledDiv>
-              <CountryVisualization
-                name={name}
-                searchActivation={searchActivation}
-                nameFilter={nameFilter}
-                obtainInfo={obtainInfo}
-                btnDetails={btnDetails}
-              />
-            </StyledDiv>
-          </>
-        )}
-      </InfoArticle>
-      {/* <StyledSection>
-        <h1>Informacion de Paises</h1>
-        {!btnDetails[0] && (
-          <SearchCountry search={search} searchAction={searchAction} />
-        )}
-        <StyledDiv>
+              searchActivation={searchActivation}
+            />
+          </Grid>
+        </Grid>
+        {/* <TitleText />
+        <div style={{border:"1px solid blue",width:"100%",height:"10%"}}>
+          {!btnDetails[0] ? (
+            <SearchCountry search={search} searchAction={searchAction} />
+          ) : (
+            <Button
+              color="neutral"
+              size="md"
+              variant="soft"
+              sx={{
+                borderRadius: "16px",
+                width: "80%",
+              }}
+              onClick={() => obtainInfo(btnDetails[0])}
+              startDecorator={<KeyboardArrowLeft />}>
+              Volver
+            </Button>
+          )}
           <UserMessage
             search={search}
-            searchActivation={searchActivation}
             nameFilter={nameFilter}
-          />
-          <CountryVisualization
-            name={name}
             searchActivation={searchActivation}
-            nameFilter={nameFilter}
-            obtainInfo={obtainInfo}
-            btnDetails={btnDetails}
           />
-        </StyledDiv>
-      </StyledSection> */}
+        </div> */}
+      </TextArticle>
+      {/* --------------------------------------- */}
+
+      <InfoArticle>
+        <section
+          style={{
+            width: "100%",
+            height: "100%",
+            display: searchActivation ? "none" : "block",
+          }}>
+          <ImgHero />
+        </section>
+        <section
+          style={{
+            width: "100%",
+            height: "100%",
+            display: !searchActivation ? "none" : "block",
+          }}>
+          <StyledDiv>
+            <CountryVisualization
+              name={name}
+              searchActivation={searchActivation}
+              nameFilter={nameFilter}
+              obtainInfo={obtainInfo}
+              btnDetails={btnDetails}
+            />
+          </StyledDiv>
+        </section>
+      </InfoArticle>
     </Contain>
   );
 };
