@@ -23,6 +23,11 @@ const ContainFilter = styled.article`
   overflow: auto;
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.4) transparent;
+
+  @media (max-width: 768px) {
+    
+    border: 1px solid red;
+  }
 `;
 
 const FilteredCountries = ({ nameFilter, obtainInfo, name, btnDetails }) => {

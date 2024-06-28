@@ -9,6 +9,10 @@ const Contain = styled.article`
   /* justify-content: center;
 align-items: center; */
   position: relative;
+
+  @media (max-width: 1100px) {
+    display: none;
+  }
 `;
 const ImgStyled = styled.img`
   width: 30%;

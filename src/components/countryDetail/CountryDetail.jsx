@@ -29,7 +29,7 @@ const CountryDetail = ({ nameFilter, name }) => {
           display: "flex",
           justifyContent: "center",
           width: "350px",
-          height: "100%",
+          height: "500px", // cambiar a 100% en 768px
           position: "relative",
           boxSizing: "border-box",
           overflow: { xs: "auto", sm: "initial" },

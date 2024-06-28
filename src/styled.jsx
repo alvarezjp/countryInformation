@@ -13,25 +13,39 @@ const Contain = styled.article`
   background-blend-mode: multiply;
   background-size: cover;
   background-position: center;
+  @media (max-width: 768px) {
+    /* height: 150vh; */
+    padding-top: 24px;
+    flex-direction: column;
+    align-items: center;
+    /* border: 1px solid yellow; */
+  }
 `;
 const TextArticle = styled.article`
   box-sizing: border-box;
   width: 50%;
   height: 100%;
   display: flex;
-flex-direction: column;
+  flex-direction: column;
   justify-content: center;
   align-items: end;
   gap: 16px;
-  /* border: 1px solid red; */
+  @media (max-width: 768px) {
+    width: 90%;
+    border: 1px solid red;
+  }
 `;
 const InfoArticle = styled.article`
   width: 50%;
   height: 100%;
-  display:  flex;
+  display: flex;
   align-items: center;
   box-sizing: border-box;
-  /* border: 1px solid green; */
+  @media (max-width: 768px) {
+    width: 90%;
+    height: 50%;
+    border: 1px solid green;
+  }
 `;
 
 const StyledSection = styled.section`
@@ -62,6 +76,10 @@ const StyledDiv = styled.div`
   width: 100%;
   height: 90%;
   margin-top: 16px;
- 
+  @media (max-width: 768px) {
+    justify-content: flex-start;
+    border:1px solid yellow;
+    height: 90%;
+  }
 `;
 export { Contain, TextArticle, InfoArticle, StyledSection, StyledDiv };

@@ -14,6 +14,12 @@ const TextH1 = styled.h1`
   font-size: 56px;
   color: white;
   line-height: 64px;
+
+  @media (max-width: 768px) {
+    font-size: 42px;
+    line-height: 54px;
+  
+  }
 `;
 const TextH2 = styled.h2`
   font-family: "Work Sans", sans-serif;
@@ -21,6 +27,12 @@ const TextH2 = styled.h2`
   font-size: 42px;
   color: white;
   line-height: 54px;
+
+  @media (max-width: 768px) {
+    font-size: 32px;
+    line-height: 44px;
+  
+  }
 `;
 
 const TitleText = () => {
