@@ -1,15 +1,11 @@
 import * as React from "react";
-// import AspectRatio from "@mui/joy/AspectRatio";
-// import Button from "@mui/joy/Button";
-// import Card from "@mui/joy/Card";
-// import CardActions from "@mui/joy/CardActions";
-// import CardContent from "@mui/joy/CardContent";
-// import CardOverflow from "@mui/joy/CardOverflow";
+
 import Sheet from "@mui/joy/Sheet";
 import Typography from "@mui/joy/Typography";
 
 import { useState } from "react";
 import server from "../server.js";
+
 
 const ViewWeather = ({ info }) => {
   const [tempMax, setTempMax] = useState(0);
@@ -24,11 +20,11 @@ const ViewWeather = ({ info }) => {
   };
 
   server
-    .geoLocation(capital, code, import.meta.env.VITE_ALGO)
+    .geoLocation(capital, code, process.env.TIEMPO_CLIMA)
     .then((response) => {
       const lat = response.data[0].lat;
       const lon = response.data[0].lon;
-      const clave = import.meta.env.VITE_SOME_KEY;
+      const clave = process.env.PAIS_CIUDAD;
 
       server.weather(lat, lon, clave).then((response) => {
         setTempMax(conversion(response.data.main.temp_max));
@@ -38,8 +34,11 @@ const ViewWeather = ({ info }) => {
     });
   return (
     <>
-      <Typography fontSize="xl" fontWeight="lg" sx={{ color: "white", marginTop:"8px" }}>
-      Weather
+      <Typography
+        fontSize="xl"
+        fontWeight="lg"
+        sx={{ color: "white", marginTop: "8px" }}>
+        Weather
       </Typography>
       <Sheet
         sx={{
