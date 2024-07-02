@@ -38,9 +38,7 @@ const CountryVisualization = ({
     if (btnDetails != "" && nameFilter.length > 1 && searchActivation) {
       return (
         <>
-          <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
-            <CountryDetail nameFilter={btnDetails} name={name} />
-          </Box>
+          <CountryDetail nameFilter={btnDetails} name={name} />
         </>
       );
     }

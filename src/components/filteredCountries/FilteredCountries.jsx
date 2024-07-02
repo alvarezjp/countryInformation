@@ -12,21 +12,24 @@ import DetailView from "../detailView/DetailView.jsx";
 import styled from "styled-components";
 
 const ContainFilter = styled.article`
+  /* border: 1px solid red; */
+  box-sizing: border-box;
   display: flex;
-  width: 320px;
+  width: 100%;
+  padding-right: 30px;
   /* height: 100%; */
   flex-wrap: wrap;
   gap: 20px;
   /* padding-right: 50px; */
   justify-content: center;
-  /* border: 1px solid red; */
   overflow: auto;
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.4) transparent;
 
   @media (max-width: 768px) {
-    
-    border: 1px solid red;
+    width: 100%;
+    padding-right: 0px;
+    /* border: 2px solid purple; */
   }
 `;
 

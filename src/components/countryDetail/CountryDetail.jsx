@@ -29,12 +29,17 @@ const CountryDetail = ({ nameFilter, name }) => {
           display: "flex",
           justifyContent: "center",
           width: "350px",
-          height: "500px", // cambiar a 100% en 768px
+          height: "550px", // cambiar a 100% en 768px
           position: "relative",
           boxSizing: "border-box",
-          overflow: { xs: "auto", sm: "initial" },
+          // overflow: { xs: "scroll", sm: "auto", md: "auto" },
           // border:"1px solid green",
-        }}>
+          '@media (max-width: 320px)': {
+            width: "95%",
+          },
+
+        }}
+        >
         <Card
           orientation="horizontal"
           variant="plain"

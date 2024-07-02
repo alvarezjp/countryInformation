@@ -18,7 +18,10 @@ const TextH1 = styled.h1`
   @media (max-width: 768px) {
     font-size: 42px;
     line-height: 54px;
-  
+  }
+  @media (max-width: 320px) {
+    font-size: 40px;
+    /* line-height: 54px; */
   }
 `;
 const TextH2 = styled.h2`
@@ -30,6 +33,11 @@ const TextH2 = styled.h2`
 
   @media (max-width: 768px) {
     font-size: 32px;
+    line-height: 44px;
+  
+  }
+  @media (max-width: 320px) {
+    font-size: 30px;
     line-height: 44px;
   
   }

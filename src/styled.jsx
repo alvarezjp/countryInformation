@@ -7,15 +7,16 @@ const Contain = styled.article`
   width: 100%;
   display: flex;
   flex-direction: row;
+  box-sizing: border-box;
 
-  background-image: url("img/fondo3.jpg");
-  background-color: rgba(0, 0, 0, 0.8);
-  background-blend-mode: multiply;
+  /* background-image: url("img/fondo3.jpg"); */
+  /* background-color: rgba(0, 0, 0, 0.8); */
+  /* background-blend-mode: multiply;
   background-size: cover;
-  background-position: center;
+  background-position: center; */
   @media (max-width: 768px) {
-    /* height: 150vh; */
-    padding-top: 24px;
+    /* height: 111vh; */
+    padding-top: 64px;
     flex-direction: column;
     align-items: center;
     /* border: 1px solid yellow; */
@@ -31,20 +32,22 @@ const TextArticle = styled.article`
   align-items: end;
   gap: 16px;
   @media (max-width: 768px) {
+    /* border: 1px solid red; */
     width: 90%;
-    border: 1px solid red;
+    height:auto;
   }
 `;
 const InfoArticle = styled.article`
+  /* border: 1px solid green; */
   width: 50%;
   height: 100%;
   display: flex;
   align-items: center;
   box-sizing: border-box;
   @media (max-width: 768px) {
-    width: 90%;
-    height: 50%;
-    border: 1px solid green;
+    /* border: 3px solid blue; */
+    width: 100%;
+    height: 55%;
   }
 `;
 
@@ -74,12 +77,15 @@ const StyledDiv = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 90%;
+  height: 95%;
   margin-top: 16px;
+  /* overflow: auto; */
   @media (max-width: 768px) {
+    /* border: 1px solid yellow; */
+    margin-top: 0;
+    /* padding:8px 0; */
     justify-content: flex-start;
-    border:1px solid yellow;
-    height: 90%;
+    height: 100%;
   }
 `;
 export { Contain, TextArticle, InfoArticle, StyledSection, StyledDiv };
