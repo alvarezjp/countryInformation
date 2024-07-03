@@ -19,8 +19,7 @@ const ViewWeather = ({ info }) => {
     return Math.round(temp - 273.15);
   };
 
-const esto = process.env.TIEMPO_CLIMA;
-console.log("esto es -------->",esto)
+
   server
     .geoLocation(capital, code, process.env.TIEMPO_CLIMA)
     .then((response) => {
