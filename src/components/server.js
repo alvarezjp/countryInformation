@@ -13,7 +13,7 @@ const weather = (lat,lon,key) =>{
 }
 
 const geoLocation = (country,code,key) => {
-  return axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${country},${code}&limit=1&appid=${key} `)
+  return axios.get(`https://api.openweathermap.org/geo/1.0/direct?q=${country},${code}&limit=1&appid=${key} `)
 }
 
 const create = (newObjet) => {
